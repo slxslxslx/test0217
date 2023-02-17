@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>能源地图</title>
+    <script type="text/javascript" src="echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="echarts/world.js"></script>
+</head>
+    <link rel="stylesheet" href="./energy-map.css">
+</head>
+<body>
+     <!-- 头部 -->
+    <div class="header">
+        <h1>
+            <a href="#"><img src="./logo.jpg" alt="" width="40"></a>
+        </h1>
+      <!-- 导航 -->
+        <div class="nav">
+          <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">能源地图</a></li>
+            <li><a href="#">新能源介绍</a></li>
+            <li><a href="#">新能源对比</a></li>
+            <li><a href="#">展望未来</a></li>
+            <li><a href="#">我的碳排放量</a></li>
+          </ul>
+        </div>
+
+       <!-- 搜索框  -->
+         <!-- <div class="search">
+            <input type="text" placeholder="请输入关键词">
+            <button></button>
+              放大镜 
+        </div>  -->
+    </div>
+
+    <div class="body">
+        <div class="option">
+            <ul>
+                <li> <a href="#">风能</a><br></li>
+                <li> <a href="#">水能</a><br></li>
+                <li> <a href="#">太阳能</a><br></li>
+                <li> <a href="#">地热能</a><br></li>
+            </ul>
+            
+           
+
+        </div>
+
+        <div class="world-map" id="world-map">
+            <script>
+                // 区域分布图
+                // 默认是风能
+        var myChart1 = echarts.init(document.getElementById('world-map'));
+        var provinces =  {
+            visualMap: {
+                min: 0,
+                max: 1000000,
+                text:['高','低'],
+                realtime: false,
+                calculable: true,
+                color: ['orangered','yellow','lightskyblue'],
+                left:15
+            },
+            series: [
+                {
+                    name: 'World Population (2010)',
+                    type: 'map',
+                    mapType: 'world',
+                    roam: true,
+                    itemStyle:{
+                        emphasis:{label:{show:true}}
+                    },
+                    data: [
+                        {name: '中国', value: 28397.812},
+                        {name: '美国', value: 19549.124},
+                        {name: '日本', value: 3150.143},
+                        {name: '韩国', value: 8441.537},
+                        {name: '澳大利亚', value: 1111844},
+                    ]
+                }
+            ]
+        };
+        myChart1.setOption(provinces);
+    
+        </script>
+        </div>
+
+    </div>
+</body>
+</html>
